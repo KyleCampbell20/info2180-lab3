@@ -2,7 +2,7 @@
 window.onload = function addCname(){
     let squares = document.querySelectorAll("#board div");
     let currentP = "X";
-    
+   
     
     
     
@@ -12,12 +12,14 @@ window.onload = function addCname(){
             
             console.log("square" + i + "clicked")
             var container = document.getElementById("board")
-            var stateofGame = document.getElementsByClassName("square")//.innerHTML
-            if(container.getElementsByClassName("square")[i].innerHTML != "X" && container.getElementsByClassName("square")[i].innerHTML != "O"){//stateofGame[i].innerHTML == null ){
+            var stateofGame = document.getElementsByClassName("square")
+            if(container.getElementsByClassName("square")[i].innerHTML != "X" && container.getElementsByClassName("square")[i].innerHTML != "O"){
                 container.getElementsByClassName("square")[i].innerHTML = currentP
-                if(currentP == "X"){
+                 if(currentP == "X"){
                     currentP = "O"
+                    squares[i].classList.add("X")
                 }else if(currentP == "O"){
+                    squares[i].classList.add("O")
                     currentP = "X"
                 } 
             }
