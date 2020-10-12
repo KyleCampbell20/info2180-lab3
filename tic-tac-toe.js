@@ -16,7 +16,22 @@ window.onload = function addCname(){
                 container.getElementsByClassName("square")[i].innerHTML = currentP
                 stateofGame[i] = currentP
                 console.log(stateofGame[i])    
-            
+                function mousecheck(){
+                    squares[i].classList.add("hover")
+                    console.log("square" + i + "hovered")
+                }
+                function MouseOcheck(){
+                    squares[i].classList.remove("hover")
+                    console.log("square" + i + "Off")
+                }
+                squares[i].addEventListener("mouseover", mousecheck)
+                squares[i].addEventListener("mouseout", MouseOcheck)
+                
+                
+                
+                
+                
+                
                 if(currentP == "X"){
                     currentP = "O"
                     squares[i].classList.add("X")
