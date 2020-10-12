@@ -86,37 +86,30 @@ window.onload = function addCname(){
                 
         })
             
-
-            
-            
-        
-            
-            
-            
-               
-                                       
-            
-                
-               
-                
-        
-                
-    
-                
-            
-            
-                
-            
-        
-        
-       
-    
-        
-        
     }
+    btn.addEventListener("click", function() {
+        for (let i = 0 ; i < squares.length; i++){
+            container.getElementsByClassName("square")[i].innerHTML = " "
+            currentP="X"
+           
+            squares[i].classList.remove("X")
+            squares[i].classList.remove("O")
+            squares[i].classList.remove("hover")
+            squares[i].classList.remove("hover.O")
         
- 
-   
+            console.log("clicked")
+        }
+        document.getElementById("status").innerHTML = "Move your mouse over a square and click to play an X or an O."
+        document.getElementById("status").classList.remove("you-won")
+        stateofGame= ["", "", "", "", "", "", "", "", ""];
+    
+    })     
+            
+        
+            
+            
+            
+               
 }    
     
 
