@@ -3,8 +3,8 @@ window.onload = function addCname(){
     let squares = document.querySelectorAll("#board div");
     let currentP = "X";
     let stateofGame = ["", "", "", "", "", "", "", "", ""];
-    
-    
+    let btn = document.querySelector(".btn")
+    var container = document.getElementById("board")
     
     
     for (let i = 0 ; i < squares.length; i++){
@@ -12,21 +12,23 @@ window.onload = function addCname(){
         squares[i].addEventListener("click",function() {
             console.log("square" + i + "clicked")
             
-            squares[i].addEventListener("mouseover", mousecheck)
-            squares[i].addEventListener("mouseout", MouseOcheck)
+            
+            
+            
+           
             function mousecheck(){
                 squares[i].classList.add("hover")
-                squares[i].classList.remove("hover.O")
                 console.log("square" + i + "hovered")
             }
             function MouseOcheck(){
-                squares[i].classList.add("hover.O")
                 squares[i].classList.remove("hover")
                 console.log("square" + i + "Off")
             }
+            squares[i].addEventListener("mouseover", mousecheck)
+            squares[i].addEventListener("mouseout", MouseOcheck)
 
-            var container = document.getElementById("board")
-            var DisplayStatus = document.querySelector("#status")
+            
+            
         
             
             
@@ -37,6 +39,7 @@ window.onload = function addCname(){
                 container.getElementsByClassName("square")[i].innerHTML = currentP
                 stateofGame[i] = currentP
                 console.log(stateofGame[i])
+                
                 if(stateofGame[0] == currentP && stateofGame[1] == currentP && stateofGame[2] == currentP)
                 {
                     document.getElementById("status").innerHTML = "Congratulations! " + currentP + " is the Winner! "
@@ -88,17 +91,37 @@ window.onload = function addCname(){
                     
                 } 
             }
+                
+    
+                
+            
             
                 
             
         })
         
-        
-        
-
+       
+    
         
         
     }
+        btn.addEventListener("click", function() {
+            for (let i = 0 ; i < squares.length; i++){
+                container.getElementsByClassName("square")[i].innerHTML = " "
+                currentP="X"
+               
+                squares[i].classList.remove("X")
+                squares[i].classList.remove("O")
+                squares[i].classList.remove("hover")
+                squares[i].classList.remove("hover.O")
+            
+                console.log("clicked")
+            }
+            document.getElementById("status").innerHTML = "Move your mouse over a square and click to play an X or an O."
+            document.getElementById("status").classList.remove("you-won")
+            stateofGame= ["", "", "", "", "", "", "", "", ""];
+
+        })
  
    
 }    
